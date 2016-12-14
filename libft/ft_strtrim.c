@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jdesmare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/22 10:44:37 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/11/22 10:44:39 by cfatrane         ###   ########.fr       */
+/*   Created: 2016/11/05 16:42:19 by jdesmare          #+#    #+#             */
+/*   Updated: 2016/11/09 15:31:05 by jdesmare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,25 @@
 
 char	*ft_strtrim(char const *s)
 {
+	size_t	i;
 	size_t	min;
-	size_t	max;
-	size_t	len;
+	char	*empty;
 
+	i = 0;
 	if (!s)
 		return (NULL);
-	min = 0;
-	while (s[min] != '\0'
-			&& (s[min] == ' ' || s[min] == '\n' || s[min] == '\t'))
-		min++;
-	max = ft_strlen(s);
-	while (min < max
-			&& (s[max - 1] == ' ' || s[max - 1] == '\n' || s[max - 1] == '\t'))
-		max--;
-	if (min == max)
-		return (ft_strnew(1));
-	len = max - min;
-	return (ft_strsub(s, min, len));
+	empty = (char *)malloc(sizeof(char));
+	if (!empty)
+		return (NULL);
+	empty[0] = '\0';
+	while (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
+		i++;
+	min = i;
+	i = ft_strlen(s);
+	if (min == i)
+		return (empty);
+	while (s[i - 1] == ' ' || s[i - 1] == '\n' || s[i - 1] == '\t')
+		i--;
+	i = i - min;
+	return (ft_strsub(s, min, i));
 }

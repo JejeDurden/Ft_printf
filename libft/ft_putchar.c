@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jdesmare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/22 10:38:17 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/11/22 10:38:19 by cfatrane         ###   ########.fr       */
+/*   Created: 2016/11/03 12:03:02 by jdesmare          #+#    #+#             */
+/*   Updated: 2016/11/04 09:13:26 by jdesmare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_putchar(char c)
 {
-	ft_putchar_fd(c, 1);
+	write(1, &c, 1);
 }

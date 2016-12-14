@@ -3,29 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jdesmare <jdesmare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/22 10:39:45 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/11/22 10:39:48 by cfatrane         ###   ########.fr       */
+/*   Created: 2016/11/23 18:29:08 by jdesmare          #+#    #+#             */
+/*   Updated: 2016/11/26 16:37:57 by jdesmare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_sqrt(int nb)
+int		ft_sqrt(int nb)
 {
-	int root;
+	int		i;
 
-	root = 1;
-	while (root * root != nb)
-	{
-		if (root / 2 > nb)
-		{
-			break ;
-		}
-		root++;
-	}
-	if (root * root == nb)
-		return (root);
-	return (0);
+	i = 0;
+	while ((i * i) < nb)
+		i++;
+	i--;
+	return (i);
 }

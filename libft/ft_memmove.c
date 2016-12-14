@@ -3,25 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jdesmare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/22 10:37:54 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/11/22 10:37:57 by cfatrane         ###   ########.fr       */
+/*   Created: 2016/11/04 14:29:18 by jdesmare          #+#    #+#             */
+/*   Updated: 2016/11/07 14:42:13 by jdesmare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t n)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	char *tmp;
+	char	*temp;
 
-	tmp = ft_strnew(n);
-	if (tmp)
+	temp = ft_strnew(n);
+	if (temp)
 	{
-		tmp = ft_memcpy(tmp, src, n);
-		dst = ft_memcpy(dst, tmp, n);
+		temp = ft_memcpy(temp, src, n);
+		dest = ft_memcpy(dest, temp, n);
 	}
-	free(tmp);
-	return (dst);
+	free(temp);
+	return (dest);
 }

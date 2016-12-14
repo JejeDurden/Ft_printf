@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_words_sep.c                               :+:      :+:    :+:   */
+/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jdesmare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/22 10:32:37 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/11/22 10:32:40 by cfatrane         ###   ########.fr       */
+/*   Created: 2016/12/13 08:22:54 by jdesmare          #+#    #+#             */
+/*   Updated: 2016/12/13 09:06:04 by jdesmare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_count_words_sep(char const *s, char c)
+void	ft_putnbr_base(int nb, int base)
 {
-	int	count;
-	int	sep;
+	char	*str;
 
-	sep = 0;
-	count = 0;
-	while (*s != '\0')
+	str = "0123456789ABCDEF";
+	if (base == 10)
+		ft_putnbr(nb);
+	else
 	{
-		if (sep == 1 && *s == c)
-			sep = 0;
-		if (sep == 0 && *s != c)
+		if (nb < 0)
 		{
-			sep = 1;
-			count++;
+			nb = -nb;
 		}
-		s++;
+		if (nb >= base)
+			ft_putnbr_base(nb / base, base);
+		ft_putchar(str[nb % base]);
 	}
-	return (count);
 }

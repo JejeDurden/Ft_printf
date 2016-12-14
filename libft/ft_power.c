@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen_sep.c                                    :+:      :+:    :+:   */
+/*   ft_power.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jdesmare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/22 10:42:03 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/11/22 10:42:05 by cfatrane         ###   ########.fr       */
+/*   Created: 2016/11/09 16:22:26 by jdesmare          #+#    #+#             */
+/*   Updated: 2016/11/09 19:44:12 by jdesmare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen_sep(char const *s, char c)
+int		ft_power(int nb, int power)
 {
-	int	len;
-
-	len = 0;
-	while (s[len] != c && s[len] != '\0')
-		len++;
-	return (len);
+	return ((power > 0) ? ft_power(nb, power - 1) : 1);
 }

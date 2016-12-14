@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isspace.c                                       :+:      :+:    :+:   */
+/*   ft_parse_length.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jdesmare <jdesmare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/22 10:33:31 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/11/22 10:33:33 by cfatrane         ###   ########.fr       */
+/*   Created: 2016/12/13 18:15:31 by jdesmare          #+#    #+#             */
+/*   Updated: 2016/12/13 18:16:09 by jdesmare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "./includes/ft_printf.h"
 
-int	ft_isspace(int c)
+int		ft_parse_length(char *temp)
 {
-	return (c == '\t' || c == '\n' || c == '\v'
-			|| c == '\f' || c == '\r' || c == ' ');
+	int		len;
+
+	len = 0;
+	return (0);
 }

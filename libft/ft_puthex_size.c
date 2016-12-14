@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isupper.c                                       :+:      :+:    :+:   */
+/*   ft_puthex_size.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jdesmare <jdesmare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/22 10:33:38 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/11/22 10:33:40 by cfatrane         ###   ########.fr       */
+/*   Created: 2016/12/14 15:49:48 by jdesmare          #+#    #+#             */
+/*   Updated: 2016/12/14 15:53:57 by jdesmare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "./libft.h"
 
-int	ft_isupper(int c)
+int		ft_puthex_size(unsigned long int nb)
 {
-	return (c >= 'A' && c <= 'Z');
+	int		i;
+
+	i = 0;
+	while (nb /= 16)
+		i++;
+	return (i);
 }

@@ -3,39 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jdesmare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/22 10:43:43 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/11/22 10:43:45 by cfatrane         ###   ########.fr       */
+/*   Created: 2016/11/07 09:48:48 by jdesmare          #+#    #+#             */
+/*   Updated: 2016/11/10 10:37:29 by jdesmare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	**ft_strsplit(char const *s, char c)
+char			**ft_strsplit(char const *s, char c)
 {
-	char	**str;
+	char	**tab;
 	int		i;
-	int		nb_words;
-	size_t	len;
+	int		count;
+	int		len;
 
 	if (!s)
 		return (NULL);
 	i = 0;
-	nb_words = ft_count_words_sep(s, c);
-	if (!(str = ((char**)malloc(sizeof(*str) * (nb_words + 1)))))
+	count = ft_countwords(s, c);
+	tab = (char **)malloc(sizeof(char *) * (count + 1));
+	if (!tab)
 		return (NULL);
-	while (nb_words--)
+	while (count--)
 	{
-		while (*s != '\0' && *s == c)
+		while (*s == c && *s != '\0')
 			s++;
-		len = ft_strlen_sep(s, c);
-		str[i] = ft_strsub(s, 0, len);
-		if (str[i] == '\0')
+		len = ft_wordlen(s, c);
+		tab[i] = ft_strsub(s, 0, len);
+		if (!tab[i])
 			return (NULL);
-		s = s + ft_strlen_sep(s, c);
+		s += len;
 		i++;
 	}
-	str[i] = NULL;
-	return (str);
+	tab[i] = NULL;
+	return (tab);
 }

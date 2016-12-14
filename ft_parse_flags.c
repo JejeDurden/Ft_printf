@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_range.c                                         :+:      :+:    :+:   */
+/*   ft_parse_flags.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jdesmare <jdesmare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/22 10:39:39 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/11/22 10:39:42 by cfatrane         ###   ########.fr       */
+/*   Created: 2016/12/13 18:12:48 by jdesmare          #+#    #+#             */
+/*   Updated: 2016/12/14 11:38:32 by jdesmare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "./includes/ft_printf.h"
 
-int	*ft_range(int min, int max)
+int		ft_parse_flags(char *temp)
 {
-	int i;
-	int *tab;
+	int		i;
 
 	i = 0;
-	if (min >= max)
-		return (0);
-	tab = (int*)malloc(sizeof(*tab) * (max - min));
-	while (min < max)
-	{
-		tab[i] = min;
-		min++;
+	while (temp[i] == ' ' || temp[i] == '+' || temp[i] == '-'
+			|| temp[i] == '#' || temp[i] == '0')
 		i++;
+	if (*temp == '-')
+	{
+		temp++;
 	}
-	return (tab);
+	return (i);
 }

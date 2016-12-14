@@ -3,38 +3,61 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jdesmare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/22 10:33:45 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/11/22 10:33:49 by cfatrane         ###   ########.fr       */
+/*   Created: 2016/11/05 18:23:30 by jdesmare          #+#    #+#             */
+/*   Updated: 2016/12/13 12:25:58 by jdesmare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_itoa(int num)
+static int		count_nb(int nb)
 {
-	char		*str;
-	int			i;
-	int			len;
-	int			sign;
-	long int	n;
+	int				len;
+	unsigned int	n;
 
-	n = num;
-	if ((sign = n) < 0)
-		n = -n;
-	len = ft_count_itoa(num);
-	if (!(str = (char*)malloc(sizeof(*str) * (len + 1))))
-		return (NULL);
-	str[0] = (n % 10) + 48;
-	i = 1;
-	while ((n /= 10) > 0)
+	len = 1;
+	n = nb;
+	if (nb == 0)
+		len = 2;
+	if (nb < 0)
 	{
-		str[i] = (n % 10) + 48;
-		i++;
+		n = -nb;
+		len++;
 	}
-	if (sign < 0)
-		str[i++] = '-';
+	while (n > 0)
+	{
+		n /= 10;
+		len++;
+	}
+	return (len);
+}
+
+char			*ft_itoa(int n)
+{
+	int				i;
+	char			*str;
+	int				negative;
+	unsigned int	nb;
+
+	i = count_nb(n) - 1;
+	if ((str = (char*)malloc(sizeof(char) * (i + 1))) == 0)
+		return (0);
+	negative = n;
 	str[i] = '\0';
-	return (ft_strrev_itoa(str));
+	nb = n;
+	if (n < 0)
+		nb *= -1;
+	if (n == 0)
+		str[i - 1] = '0';
+	while (nb > 0)
+	{
+		i--;
+		str[i] = (nb % 10) + '0';
+		nb = nb / 10;
+	}
+	if (negative < 0)
+		str[0] = '-';
+	return (str);
 }

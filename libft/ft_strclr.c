@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strclr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jdesmare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/22 10:40:11 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/11/22 10:40:14 by cfatrane         ###   ########.fr       */
+/*   Created: 2016/11/05 14:02:41 by jdesmare          #+#    #+#             */
+/*   Updated: 2016/11/07 15:48:36 by jdesmare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,11 @@
 void	ft_strclr(char *s)
 {
 	if (s)
-		ft_bzero(s, ft_strlen(s));
+	{
+		while (*s)
+		{
+			*s = '\0';
+			s++;
+		}
+	}
 }

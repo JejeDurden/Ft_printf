@@ -3,32 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jdesmare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/22 10:43:19 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/11/22 10:43:23 by cfatrane         ###   ########.fr       */
+/*   Created: 2016/11/04 10:38:44 by jdesmare          #+#    #+#             */
+/*   Updated: 2016/11/09 14:06:06 by jdesmare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *big, const char *little, size_t n)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	size_t i;
-	size_t j;
+	size_t		i;
+	size_t		j;
 
-	if (*little == '\0')
-		return ((char*)big);
 	i = 0;
-	while (big[i] && i < n)
+	j = 0;
+	if (needle[j] == '\0')
+		return ((char*)haystack);
+	while (haystack[i] && i < len)
 	{
-		j = 0;
-		while (big[i + j] == little[j] && (i + j) < n)
+		while (haystack[i + j] == needle[j] && needle[j] && i + j < len)
 		{
 			j++;
-			if (little[j] == '\0')
-				return ((char*)big + i);
+			if (needle[j] == '\0')
+				return ((char*)haystack + i);
 		}
+		j = 0;
 		i++;
 	}
 	return (NULL);

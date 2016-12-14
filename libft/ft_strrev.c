@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_count_itoa.c                                    :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jdesmare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/22 10:32:27 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/11/22 10:32:32 by cfatrane         ###   ########.fr       */
+/*   Created: 2016/11/10 10:57:46 by jdesmare          #+#    #+#             */
+/*   Updated: 2016/11/10 11:32:42 by jdesmare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_count_itoa(int num)
+char	*ft_strrev(char *str)
 {
-	int			count;
-	long int	nb;
+	int		i;
+	int		len;
+	char	temp;
 
-	count = 0;
-	nb = num;
-	if (num < 0)
+	i = 0;
+	len = 0;
+	while (str[len] != '\0')
+		len++;
+	len--;
+	while (i <= len)
 	{
-		nb = -nb;
-		count++;
+		temp = str[len];
+		str[len] = str[i];
+		str[i] = temp;
+		i++;
+		len--;
 	}
-	if (num == 0)
-		count = 1;
-	while (nb > 0)
-	{
-		nb /= 10;
-		count++;
-	}
-	return (count);
+	return (str);
 }

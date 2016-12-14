@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strndup.c                                       :+:      :+:    :+:   */
+/*   ft_wordlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jdesmare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/22 10:46:46 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/11/22 10:49:24 by cfatrane         ###   ########.fr       */
+/*   Created: 2016/11/09 18:08:24 by jdesmare          #+#    #+#             */
+/*   Updated: 2016/11/10 10:26:49 by jdesmare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strndup(const char *s1, size_t n)
+int		ft_wordlen(const char *str, char c)
 {
-	char	*s2;
+	int		len;
 
-	if (!(s2 = ft_strnew(ft_strlen(s1))))
-		return (NULL);
-	ft_strncpy(s2, s1, n);
-	return (s2);
+	len = 0;
+	while (str[len] != '\0' && str[len] != c)
+		len++;
+	return (len);
 }

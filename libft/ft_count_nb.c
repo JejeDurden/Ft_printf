@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrev_itoa.c                                   :+:      :+:    :+:   */
+/*   ft_count_nb.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cfatrane <cfatrane@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jdesmare <jdesmare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/22 10:43:37 by cfatrane          #+#    #+#             */
-/*   Updated: 2016/11/22 10:43:39 by cfatrane         ###   ########.fr       */
+/*   Created: 2016/12/13 09:36:01 by jdesmare          #+#    #+#             */
+/*   Updated: 2016/12/13 13:53:03 by jdesmare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrev_itoa(char *str)
+int		ft_count_nb(int nb)
 {
-	int		len;
-	int		i;
-	char	tmp;
+	int				len;
+	unsigned int	n;
 
 	len = 0;
-	i = 0;
-	while (str[len])
-		++len;
-	while (i < (len / 2))
+	n = nb;
+	if (nb == 0)
+		return (1);
+	if (nb < 0)
 	{
-		tmp = str[i];
-		str[i] = str[len - i - 1];
-		str[len - i - 1] = tmp;
-		i++;
+		n = -nb;
+		len++;
 	}
-	str[len] = '\0';
-	return (str);
+	while (n > 0)
+	{
+		n /= 10;
+		len++;
+	}
+	return (len);
 }
