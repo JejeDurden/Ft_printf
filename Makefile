@@ -30,6 +30,8 @@ SRC =	ft_printf.c					\
 		ft_arg_unb.c				\
 		ft_parse_precision.c		\
 		ft_width_num.c				\
+		ft_no_arg.c					\
+		ft_char_printf.c			\
 
 OBJ = $(SRC:.c=.o)
 

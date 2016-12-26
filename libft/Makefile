@@ -89,6 +89,8 @@ SRC = ft_putchar.c			\
 	  ft_strcdup.c			\
 	  ft_count_nb.c			\
 	  ft_print_hex.c		\
+	  ft_print_uhex.c		\
+	  ft_print_uhex_maj.c	\
 	  ft_putnstr.c			\
 	  ft_longer_size.c		\
 	  ft_smaller_size.c		\

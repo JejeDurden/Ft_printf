@@ -21,10 +21,10 @@ void	ft_putnbr_base_min(int nb, int base)
 		ft_putnbr(nb);
 	else
 	{
+		if (nb < 0 && base == 16)
+			nb = 4294967295 + nb;
 		if (nb < 0)
-		{
 			nb = -nb;
-		}
 		if (nb >= base)
 			ft_putnbr_base_min(nb / base, base);
 		ft_putchar(str[nb % base]);

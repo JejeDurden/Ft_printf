@@ -20,5 +20,6 @@ void	ft_putnchar(char c, int nb)
 	while (i < nb)
 	{
 		write(1, &c, 1);
+		i++;
 	}
 }

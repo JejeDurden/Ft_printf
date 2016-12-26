@@ -98,6 +98,8 @@ void				ft_putnbr_base_min(int nb, int base);
 char				*ft_strcdup(const char *s, char c);
 int					ft_count_nb(int nb);
 void				ft_print_hex(unsigned long int nb);
+void				ft_print_uhex(unsigned int nb);
+void				ft_print_uhex_maj(unsigned int nb);
 int					ft_longer_size(int n1, int n2);
 int					ft_smaller_size(int n1, int n2);
 int					ft_puthex_size(unsigned long int nb);

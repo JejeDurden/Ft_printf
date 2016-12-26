@@ -24,7 +24,7 @@ int main(void)
 	c = 'c';
 	n = 42;
 	u = 3000;
-	printf("vrai  printf = une chaine :  %.12s, un nombre : %+d, une lettre: %c, un unsigned %u\n", str, n, c, u);
-	ft_printf("my ft_printf = une chaine :  %3.2s, un nombre : %+d, une lettre: %c, un unsigned %u\n", str, n, c, u);
+	printf("vrai  printf = %   %\n");
+	ft_printf("my ft_printf = %    %\n");
 	return 0;
 }

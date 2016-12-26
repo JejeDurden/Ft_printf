@@ -22,7 +22,12 @@ int		ft_width_num(char *temp)
 		while (*temp != '.')
 			temp--;
 	}
-	while (ft_isdigit(*temp))
-		temp--;
-	return (ft_atoi(temp));
+	temp--;
+	if (ft_isdigit(*temp))
+	{
+		while (ft_isdigit(*temp))
+			temp--;
+		return (ft_atoi(temp + 1));
+	}
+	return (0);
 }

@@ -18,21 +18,24 @@ int		ft_arg_str(char *temp, va_list *var)
 	void				*p;
 	unsigned long int	z;
 	int					width;
+	int					dot;
 
-	z = ft_get_char(temp, '.');
+	dot = ft_get_char(temp, '.');
 	width = ft_width_num(temp);
 	if (*temp == 's')
 	{
 		str = va_arg(*var, char *);
-		if (z == 1)
+		if (dot == 1)
 		{
-			if (width - ft_smaller_size(ft_atoi(temp - 1),ft_strlen(str)) > 0)
-				ft_putnchar(' ', width - ft_smaller_size(ft_atoi(temp - 1),ft_strlen(str)));
-			ft_putnstr(str, ft_atoi(temp - 1));
-			return (ft_smaller_size(ft_atoi(temp - 1), ft_strlen(str)));
+			if ((width - ft_smaller_size(ft_get_precision(temp),ft_strlen(str))) > 0)
+				ft_putnchar(' ', width - ft_smaller_size(ft_get_precision(temp), ft_strlen(str)));
+			ft_putnstr(str, ft_get_precision(temp));
+			return (ft_smaller_size(ft_get_precision(temp), ft_strlen(str)));
 		}
 		else
 		{
+			if ((width - ft_strlen(str)) > 0)
+				ft_putnchar(' ', width - ft_strlen(str));
 			ft_putstr(str);
 			return (ft_longer_size(ft_strlen(str), width));
 		}

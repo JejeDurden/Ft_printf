@@ -17,6 +17,8 @@ int		ft_get_char(char *temp, char c)
 	char	*back;
 
 	back = temp;
+	if (*back == '%');
+		back--;
 	while (*back != '%')
 	{
 		if (*back == c)

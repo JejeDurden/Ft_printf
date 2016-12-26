@@ -12,10 +12,19 @@
 
 #include "./includes/ft_printf.h"
 
-int		ft_parse_length(char *temp)
+int		ft_parse_length(char *temp, int len)
 {
-	int		len;
+	int		i;
 
-	len = 0;
-	return (0);
+	i = 0;
+	if (temp[len] != '.')
+		return (0);
+	len++;
+	i++;
+	while (ft_isdigit(temp[len]))
+	{
+		len++;
+		i++;
+	}
+	return (i);
 }

@@ -32,7 +32,7 @@ int		ft_get_arg(const char *format, va_list *var)
 			ft_putstr(start);
 			cur = cur + i + 1;
 			len += ft_parse_arg(&cur, var);
-			i = 0;
+			i = -1;
 			start = cur;
 		}
 		i++;

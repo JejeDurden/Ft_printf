@@ -15,13 +15,10 @@
 int		ft_parse_width(char *temp)
 {
 	int		i;
-	int		nb;
 
 	i = 0;
-	nb = 0;
 	while (!(ft_isalnum(*temp)))
 		temp++;
-	nb = ft_atoi(temp);
 	while (ft_isdigit(temp[i]))
 		i++;
 	return (i);

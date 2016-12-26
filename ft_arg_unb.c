@@ -31,7 +31,7 @@ int		ft_arg_unb(char *temp, va_list *var)
 		{
 			if (hashtag == 1)
 				ft_putstr("0x");
-			ft_putnbr_base_min(u, 16);
+			ft_print_uhex(u);
 		}
 		if (*temp == 'o')
 		{
@@ -43,7 +43,7 @@ int		ft_arg_unb(char *temp, va_list *var)
 		{
 			if (hashtag == 1)
 				ft_putstr("0X");
-			ft_putnbr_base(u, 16);
+			ft_print_uhex_maj(u);
 		}
 		if (*temp == 'u')
 		{

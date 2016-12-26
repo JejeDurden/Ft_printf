@@ -21,8 +21,6 @@ int		ft_parse_flags(char *temp)
 			|| temp[i] == '#' || temp[i] == '0')
 		i++;
 	if (*temp == '-')
-	{
 		temp++;
-	}
 	return (i);
 }
